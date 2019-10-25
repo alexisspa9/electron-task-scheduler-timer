@@ -2,14 +2,83 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>AlpaAccountant Time Schedule</title>
+    <link rel="stylesheet" href="./index.css">
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+    <div id="MainControlPanel">
+      <div id="current_time">
 
+      </div>
+      <div id="work_time">
+        <span>Συνολικός Χρόνος</span>
+        <span id="total_work_time">00:00:00</span>
+      </div>
+      <div class="main_control_panel_buttons">
+          <button id="start_day" class="btn btn-primary">ΞΕΚΙΝΗΜΑ ΗΜΕΡΑΣ</button>
+          <button id="end_day" class="btn btn-primary">ΤΕΛΟΣ ΗΜΕΡΑΣ</button>
+      </div>
+    </div>
+    <hr/>
+    <h5>Συντομεύσεις</h5>
+    <hr/>
+    <div class="quick_menu">
+      <button id="break">Διάλειμμα</button>
+      <button id="toilet">Τουαλέτα</button>
+      <button id="printing">Εκτυπώσεις/Φωτοτυπίες</button>
+    </div>
+    <hr/>
+    <div class="task_control_panel">
+      <div class="task_manage">
+        <h5>Ξεκίνημα Εργασίας</h5>
+        <form action="#">
+          <label for="">Εταιρεία</label>
+          <select name="company" id="company">
+            <option value="1">Δοκιμη επε</option>
+            <option value="2">Τεστ επε</option>
+          </select>
+          <label for="">Τμήμα</label>
+          <select name="department" id="department">
+            <option value="1">Απλογραφικα</option>
+            <option value="2">Διπλογραφικα</option>
+          </select>
+          <label for="">Εργασία</label>
+          <select name="task" id="task">
+            <option value="1">afwdsf</option>
+            <option value="2">asdfadadfs</option>
+          </select>
+          <input type="submit" value="Ξεκίνημα">
+        </form>
+        <button id="stop">Τέλος</button>
+
+      </div>
+      <div class="task_list_wrapper">
+        <h5>Εργασίες Ημέρας</h5>
+        <button id="view_all">Προβολη Όλων</button>
+        <div id="task_list">
+          <ul>
+            <li>adfsfasdfsdaf</li>
+            <li>adfsfasdfsdaf</li>
+            <li>adfsfasdfsdaf</li>
+            <li>adfsfasdfsdaf</li>
+            <li>adfsfasdfsdaf</li>
+            <li>adfsfasdfsdaf</li>
+            <li>adfsfasdfsdaf</li>
+            <li>adfsfasdfsdaf</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="resume_wrapper">
+      <button id="resume">
+        Συνέχεια
+      </button>
+    </div>
+
+    <script src='./js/current_time.js'></script>
+    <script src='./js/work_time.js'></script>
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
   </body>

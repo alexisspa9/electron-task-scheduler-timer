@@ -1,0 +1,19 @@
+
+body {
+    background-color: #3b4045;
+    color:white;
+}
+
+#MainControlPanel {
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+}
+
+.btn {
+    color: blue;
+}
+
+.resume_wrapper {
+    display: none;
+}
