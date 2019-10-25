@@ -18,7 +18,7 @@ function startTime(ele) {
   s = checkTime(s);
   ele.innerHTML = h + ":" + m;
   t = setTimeout(function() {
-    startTime()
+    startTime(current_time_element)
   }, 500);
 }
 startTime(current_time_element);

@@ -2,6 +2,11 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 
+// const { ipcMain } = require('electron')
+// // listen the 'app_quit' event
+// ipcMain.on('app_quit', (event, info) => {
+//     app.quit();
+// });
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
@@ -31,6 +36,15 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
+  // mainWindow.on('close', (e) => {
+  //   if (mainWindow) {
+  //     alert("are you sure?")
+  //     e.preventDefault();
+  //     mainWindow.webContents.send('app-close');
+  //   }
+  // });
+
 }
 
 // This method will be called when Electron has finished
