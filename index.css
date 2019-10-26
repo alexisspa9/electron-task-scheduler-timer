@@ -17,3 +17,24 @@ body {
 .resume_wrapper {
     display: none;
 }
+
+
+.task_control_panel {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.task_manage {
+    width: 50%;
+}
+
+.task_list_wrapper {
+    width:50%;
+}
+
+hr {
+    border:0;
+    height: 1px;
+    background-color: white;
+}
