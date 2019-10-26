@@ -1,7 +1,3 @@
-const total_work_time_element = document.getElementById('total_work_time');
-const start_day_element = document.getElementById('start_day');
-const stop_day_element = document.getElementById('end_day');
-
 let start_day_time;
 let stop_day_time = '';
 let work_timer;
@@ -22,7 +18,7 @@ function workTime(ele) {
     var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
     var seconds = sec_num - (hours * 3600) - (minutes * 60);
 
-    if (hours   < 10) {hours   = "0"+hours;}
+    // if (hours   < 10) {hours   = "0"+hours;}
     if (minutes < 10) {minutes = "0"+minutes;}
     if (seconds < 10) {seconds = "0"+seconds;}
     return hours+':'+minutes+':'+seconds;
@@ -44,16 +40,3 @@ function workTime(ele) {
     work_timer_active = false;
     console.log(stop_day_time);
   }
-
-  start_day_element.addEventListener("click", function() {
-      if (!work_timer_active) {
-        startWorkTime();
-      }
-  });
-
-  stop_day_element.addEventListener("click", function() {
-
-    if (work_timer_active) {
-    stopWorkTime(); 
-    }
-});
