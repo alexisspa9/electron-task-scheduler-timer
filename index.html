@@ -68,12 +68,19 @@
         Συνέχεια
       </button>
     </div>
+    <div id="dvResult"></div>
     <script src='./js/appState.js'></script>
     <script src='./js/helpers.js'></script>
     <script src='./js/document_elements.js'></script>
     <script src='./js/work_time.js'></script>
     <script src='./js/task_timer.js'></script>
     <script src='./js/event_listeners.js'></script>
+    <script src="./js/SQLServer.js"></script>
+    <script >
+        window.onload=function(e){
+            connectToDatabase("dvResult")
+        }
+    </script>
 
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>

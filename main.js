@@ -3,12 +3,50 @@ const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const { ipcMain } = require('electron')
 const fs = require('fs');
+const storage = require('electron-storage');
 ipcMain.on('save-state', (event, arg) => {
   let data = JSON.stringify(arg);
   let current_date = new Date();
   let file_name = "./data/" + current_date.getDay() + "_" + current_date.getMonth() + "_" + current_date.getFullYear() + ".json";
   fs.writeFileSync(file_name, data);
+  storage.set(file_name, data, (err) => {
+    if (err) {
+      console.error(err)
+    }
+  });
 });
+
+
+// var child = require('child_process').execFile;
+// var executablePath = "C:\\Program Files\\Mozilla Firefox\\firefox.exe";
+// ipcMain.on('open-firefox', (event, arg) => {
+//   child(executablePath, function(err, data) {
+//       if(err){
+//         console.error(err);
+//         return;
+//       }
+  
+//       console.log(data.toString());
+//   });
+// });
+
+// var ps = require('ps-node');
+
+// A simple pid lookup 
+// ps.lookup({
+//     command: 'node',
+//     psargs: 'ux'
+//     }, function(err, resultList ) {
+//     if (err) {
+//         throw new Error( err );
+//     }
+
+//     resultList.forEach(function( process ){
+//         if( process ){
+//             console.log( 'PID: %s, COMMAND: %s, ARGUMENTS: %s', process.pid, process.command, process.arguments );
+//         }
+//     });
+// });
 
 
 

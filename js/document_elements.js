@@ -2,6 +2,7 @@
 const total_work_time_element = document.getElementById('total_work_time');
 const start_day_element = document.getElementById('start_day');
 const stop_day_element = document.getElementById('end_day');
+const current_time_element = document.getElementById('current_time');
 
 
 // task manager

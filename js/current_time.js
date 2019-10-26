@@ -1,6 +1,3 @@
-const current_time_element = document.getElementById('current_time');
-
-
 function checkTime(i) {
     if (i < 10) {
       i = "0" + i;

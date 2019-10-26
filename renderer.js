@@ -27,7 +27,23 @@ stop_day_element.addEventListener("click", function() {
 
     if (work_timer_active) {
     stopWorkTime();
-    ipcRenderer.sendSync('save-state', appState)
+    ipcRenderer.send('save-state', appState)
     }
   });
+
+
+//   printing_element.addEventListener("click", function() {
+//     if (!work_timer_active) {
+//         console.log("You have to start the day first")
+//         return;
+//     }
+//     if (task_running) {
+//         stopTask();
+//         startSpecialTask("printing");
+//     } else {
+//         console.log("started")
+//         startSpecialTask("printing");
+//         ipcRenderer.sendSync('open-firefox', null)
+//     }
+// });
   
