@@ -5,13 +5,6 @@ start_day_element.addEventListener("click", function() {
     }
 });
 
-stop_day_element.addEventListener("click", function() {
-
-  if (work_timer_active) {
-  stopWorkTime(); 
-  }
-});
-
 
 
 // task manager

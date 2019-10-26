@@ -1,12 +1,17 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
+const { ipcMain } = require('electron')
+const fs = require('fs');
+ipcMain.on('save-state', (event, arg) => {
+  let data = JSON.stringify(arg);
+  let current_date = new Date();
+  let file_name = "./data/" + current_date.getDay() + "_" + current_date.getMonth() + "_" + current_date.getFullYear() + ".json";
+  fs.writeFileSync(file_name, data);
+});
 
-// const { ipcMain } = require('electron')
-// // listen the 'app_quit' event
-// ipcMain.on('app_quit', (event, info) => {
-//     app.quit();
-// });
+
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
@@ -17,7 +22,8 @@ function createWindow () {
     width: 1000,
     height: 300,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true,
     }
   })
 
@@ -37,13 +43,14 @@ function createWindow () {
     mainWindow = null
   })
 
-  // mainWindow.on('close', (e) => {
-  //   if (mainWindow) {
-  //     alert("are you sure?")
-  //     e.preventDefault();
-  //     mainWindow.webContents.send('app-close');
-  //   }
-  // });
+  mainWindow.on('close', (e) => {
+    if (mainWindow) {
+      mainWindow.webContents.executeJavaScript("alert('Παρακαλώ τερμάτιστε την τρέχουσα ημέρα!');");
+      e.preventDefault();
+      console.log( mainWindow.webContents);
+      mainWindow.webContents.send('app-close');
+    }
+  });
 
 }
 

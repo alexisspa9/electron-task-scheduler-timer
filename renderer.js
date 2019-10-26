@@ -19,3 +19,15 @@
 //     }
 //     e.returnValue = false
 // }
+const { ipcRenderer } = require('electron')
+
+
+
+stop_day_element.addEventListener("click", function() {
+
+    if (work_timer_active) {
+    stopWorkTime();
+    ipcRenderer.sendSync('save-state', appState)
+    }
+  });
+  
