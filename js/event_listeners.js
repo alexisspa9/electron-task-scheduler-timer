@@ -10,7 +10,7 @@ start_day_element.addEventListener("click", function() {
 // task manager
 printing_element.addEventListener("click", function() {
     if (!work_timer_active) {
-        console.log("You have to start the day first")
+        alert("Δέν έχετε ξεκινήσει την ημέρα");
         return;
     }
     if (task_running) {
@@ -24,7 +24,7 @@ printing_element.addEventListener("click", function() {
 
 toilet_element.addEventListener("click", function() {
     if (!work_timer_active) {
-        console.log("You have to start the day first")
+        alert("Δέν έχετε ξεκινήσει την ημέρα");
         return;
     }
     if (task_running) {
@@ -38,7 +38,7 @@ toilet_element.addEventListener("click", function() {
 
 break_element.addEventListener("click", function() {
     if (!work_timer_active) {
-        console.log("You have to start the day first")
+        alert("Δέν έχετε ξεκινήσει την ημέρα");
         return;
     }
     if (task_running) {
@@ -63,7 +63,7 @@ resume_element.addEventListener("click", function() {
 
 start_task_element.addEventListener("click", function() {
     if (!work_timer_active) {
-        console.log("You have to start the day first")
+        alert("Δέν έχετε ξεκινήσει την ημέρα");
         return;
     }
     if (task_running) {

@@ -61,6 +61,8 @@ function startTask() {
     current_task.start_time = new Date();
     current_task.parathrhseis = parathrhseis_element.value;
     task_running = true;
+    start_task_element.disabled = true;
+    stop_task_element.disabled = false;
     taskDuration(task_time_element);
 }
 
@@ -72,6 +74,9 @@ function stopTask() {
     current_task = {};
     render_tasks();
     task_running = false;
+    start_task_element.disabled = false;
+    stop_task_element.disabled = true;
+
     clearTimeout(task_timer);
     task_time_secs = 0;
     resume_wrapper_element.style.display = "none";

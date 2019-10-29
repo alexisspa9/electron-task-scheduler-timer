@@ -76,6 +76,8 @@ input {
     cursor: pointer;
 }
 
+
+
 .btn-primary {
     background: #327ebf;
     border: 1px solid #327ebf;
@@ -90,6 +92,10 @@ input {
 .btn-danger {
     border: 1px solid red;
     background: red;
+}
+
+.btn:disabled {
+    opacity: 0.2;
 }
 
 

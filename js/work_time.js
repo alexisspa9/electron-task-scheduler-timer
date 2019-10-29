@@ -16,11 +16,15 @@ function startWorkTime() {
     }
     workTime(total_work_time_element);
     work_timer_active = true;
+    start_day_element.disabled = true;
+    stop_day_element.disabled = false;
 }
 
 function stopWorkTime() {
   appState.stop_day_time = new Date();
   clearTimeout(work_timer);
   work_timer_active = false;
+  start_day_element.disabled = false;
+  stop_day_element.disabled = true;
   console.log(appState);
 }
