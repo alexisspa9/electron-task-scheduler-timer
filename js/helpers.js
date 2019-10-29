@@ -26,3 +26,12 @@ if (mm < 10) {
 } 
 return mm + '-' + dd + '-' + yyyy + ' ' + hh + ':' + minutes + ':' + seconds;
 }
+
+
+function durationFormat(duration) {
+  if(duration < 60) {
+    return duration + " Seconds"
+  }
+  let minutes = duration / 60
+  return parseInt(minutes) + " Minutes"
+}

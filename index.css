@@ -59,6 +59,10 @@ h5 {
     text-align: center;
 }
 
+input {
+    height: 35px;
+}
+
 .quick_menu {
     text-align: center;
 }

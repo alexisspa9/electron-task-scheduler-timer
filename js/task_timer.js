@@ -30,9 +30,15 @@ function render_tasks() {
         let task_name = document.createElement('td');
         row.appendChild(task_name);
         task_name.innerText = appState.tasks_list[i].task_name;
+        let start_time = document.createElement('td');
+        row.appendChild(start_time);
+        start_time.innerText = appState.tasks_list[i].start_time.toLocaleTimeString();
         let duration = document.createElement('td');
         row.appendChild(duration);
         duration.innerText = appState.tasks_list[i].duration;
+        let parathrhseis = document.createElement('td');
+        row.appendChild(parathrhseis);
+        parathrhseis.innerText = appState.tasks_list[i].parathrhseis;
         let actions = document.createElement('td');
         row.appendChild(actions);
         actions.innerHTML = "<button id='editButton'>edit</button><button id='deleteButton'>delete</button>";
@@ -53,13 +59,14 @@ function startTask() {
     current_task.company = company_element.value;
     current_task.task_name = task_element.value;
     current_task.start_time = new Date();
+    current_task.parathrhseis = parathrhseis_element.value;
     task_running = true;
     taskDuration(task_time_element);
 }
 
 function stopTask() {
     current_task.stop_time = new Date();
-    current_task.duration = "5 minutes";
+    current_task.duration = durationFormat(task_time_secs);
     appState.tasks_list.push(current_task);
     saveTask(current_task);
     current_task = {};

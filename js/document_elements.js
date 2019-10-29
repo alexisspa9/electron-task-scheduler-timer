@@ -14,6 +14,7 @@ const company_element = document.getElementById("company");
 const task_time_element = document.getElementById("task_duration");
 const resume_timer_element = document.getElementById("resume_timer");
 const resume_wrapper_element = document.querySelector(".resume_wrapper");
+const parathrhseis_element =  document.getElementById("parathrhseis");
 
 
 // quick buttons

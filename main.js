@@ -7,7 +7,7 @@ const storage = require('electron-storage');
 ipcMain.on('save-state', (event, arg) => {
   let data = JSON.stringify(arg);
   let current_date = new Date();
-  let file_name = "./data/" + current_date.getDay() + "_" + current_date.getMonth() + "_" + current_date.getFullYear() + ".json";
+  let file_name = "./data/" + current_date.getDate() + "_" + (current_date.getMonth() + 1) + "_" + current_date.getFullYear() + ".json";
   fs.writeFileSync(file_name, data);
   storage.set(file_name, data, (err) => {
     if (err) {
@@ -15,6 +15,7 @@ ipcMain.on('save-state', (event, arg) => {
     }
   });
 });
+
 
 
 // var child = require('child_process').execFile;
@@ -57,8 +58,8 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 300,
+    width: 1200,
+    height: 600,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
