@@ -26,10 +26,19 @@ const { ipcRenderer } = require('electron')
 stop_day_element.addEventListener("click", function() {
 
     if (work_timer_active) {
-    stopWorkTime();
-    ipcRenderer.send('save-state', appState)
+        stopWorkTime();
+        if(task_running) {stopTask();}
     }
   });
+
+
+  ipcRenderer.on('app-close', (event) => {
+      if (!work_timer_active) {
+        ipcRenderer.send('closed')
+      } else {
+        alert("Δέν έχετε τερματίσει την τρέχουσα ημέρα!")
+      }
+  })
 
 
 //   printing_element.addEventListener("click", function() {

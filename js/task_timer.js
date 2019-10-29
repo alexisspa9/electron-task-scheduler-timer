@@ -18,6 +18,7 @@ function startSpecialTask(task_name) {
     task_running = true;
     taskDuration(task_time_element);
     resume_wrapper_element.style.display = "block";
+    resume_title_element.innerText = task_name;
 }
 
 function render_tasks() {
@@ -41,8 +42,12 @@ function render_tasks() {
         parathrhseis.innerText = appState.tasks_list[i].parathrhseis;
         let actions = document.createElement('td');
         row.appendChild(actions);
-        actions.innerHTML = "<button id='editButton'>edit</button><button id='deleteButton'>delete</button>";
+        //actions.innerHTML = "<button class='editButton'>edit</button><button class='deleteButton'>delete</button>";
+        actions.innerHTML = "<button class='deleteButton'>delete</button>";
+
     }
+    assign_actions_to_buttons();
+    addListenersToActions();
 }
 
 function taskDuration(ele) {

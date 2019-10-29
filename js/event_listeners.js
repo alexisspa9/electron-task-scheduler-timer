@@ -15,10 +15,10 @@ printing_element.addEventListener("click", function() {
     }
     if (task_running) {
         stopTask();
-        startSpecialTask("printing");
+        startSpecialTask("Εκτυπώσεις/Φωτοτυπίες");
     } else {
         console.log("started")
-        startSpecialTask("printing");
+        startSpecialTask("Εκτυπώσεις/Φωτοτυπίες");
     }
 });
 
@@ -29,10 +29,10 @@ toilet_element.addEventListener("click", function() {
     }
     if (task_running) {
         stopTask();
-        startSpecialTask("toilet");
+        startSpecialTask("Τουαλέτα");
     } else {
         console.log("started")
-        startSpecialTask("toilet");
+        startSpecialTask("Τουαλέτα");
     }
 });
 
@@ -43,10 +43,10 @@ break_element.addEventListener("click", function() {
     }
     if (task_running) {
         stopTask();
-        startSpecialTask("break");
+        startSpecialTask("Διάλειμμα");
     } else {
         console.log("started")
-        startSpecialTask("break");
+        startSpecialTask("Διάλειμμα");
     }
 });
 

@@ -2,20 +2,19 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const { ipcMain } = require('electron')
-const fs = require('fs');
-const storage = require('electron-storage');
-ipcMain.on('save-state', (event, arg) => {
-  let data = JSON.stringify(arg);
-  let current_date = new Date();
-  let file_name = "./data/" + current_date.getDate() + "_" + (current_date.getMonth() + 1) + "_" + current_date.getFullYear() + ".json";
-  fs.writeFileSync(file_name, data);
-  storage.set(file_name, data, (err) => {
-    if (err) {
-      console.error(err)
-    }
-  });
-});
-
+// const fs = require('fs');
+// const storage = require('electron-storage');
+// ipcMain.on('save-state', (event, arg) => {
+//   let data = JSON.stringify(arg);
+//   let current_date = new Date();
+//   let file_name = "./data/" + current_date.getDate() + "_" + (current_date.getMonth() + 1) + "_" + current_date.getFullYear() + ".json";
+//   fs.writeFileSync(file_name, data);
+//   storage.set(file_name, data, (err) => {
+//     if (err) {
+//       console.error(err)
+//     }
+//   });
+// });
 
 
 // var child = require('child_process').execFile;
@@ -84,14 +83,19 @@ function createWindow () {
 
   mainWindow.on('close', (e) => {
     if (mainWindow) {
-      mainWindow.webContents.executeJavaScript("alert('Παρακαλώ τερμάτιστε την τρέχουσα ημέρα!');");
+      // mainWindow.webContents.executeJavaScript("alert('Παρακαλώ τερμάτιστε την τρέχουσα ημέρα!');");
       e.preventDefault();
-      console.log( mainWindow.webContents);
       mainWindow.webContents.send('app-close');
     }
   });
-
 }
+
+ipcMain.on('closed', _ => {
+  mainWindow = null;
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
