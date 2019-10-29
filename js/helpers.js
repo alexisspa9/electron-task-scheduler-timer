@@ -9,3 +9,20 @@ String.prototype.toHHMMSS = function () {
     if (seconds < 10) {seconds = "0"+seconds;}
     return hours+':'+minutes+':'+seconds;
 }
+
+
+function formatDate(date_to_format) {
+var dd = date_to_format.getDate();
+var mm = date_to_format.getMonth() + 1; //January is 0!
+var yyyy = date_to_format.getFullYear();
+var hh = date_to_format.getHours();
+var minutes = date_to_format.getMinutes();
+var seconds = date_to_format.getSeconds();
+if (dd < 10) {
+  dd = '0' + dd;
+} 
+if (mm < 10) {
+  mm = '0' + mm;
+} 
+return mm + '-' + dd + '-' + yyyy + ' ' + hh + ':' + minutes + ':' + seconds;
+}
